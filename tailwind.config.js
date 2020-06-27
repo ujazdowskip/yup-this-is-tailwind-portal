@@ -13,6 +13,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ["Heebo", "sans-serif"],
+      serif: ["Libre Baskerville", "serif"],
     },
     extend: {
       boxShadow: {

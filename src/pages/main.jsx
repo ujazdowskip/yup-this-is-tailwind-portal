@@ -1,31 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
-import articles from "../data/articles";
-
-const Bookmark = () => {
-  const [bookmarked, setBookmarked] = useState(false);
-  return (
-    <i
-      className={classNames(
-        "material-icons cursor-pointer text-gray-500 hover:text-black",
-        {
-          "text-green-500 hover:text-green-300": bookmarked,
-        }
-      )}
-      onClick={() => setBookmarked(!bookmarked)}
-    >
-      {bookmarked ? "bookmark" : "bookmark_border"}
-    </i>
-  );
-};
+import store from "../store";
+import { Bookmark } from "../components/bookmark.jsx";
+import { IconButton } from "../components/icon-button.jsx";
 
 const AuthorAndDuration = ({ author, date, duration }) => (
   <div className="text-xs">
     <div className="hover:text-green-500 cursor-pointer">{author}</div>
     <div className="text-subheader">
-      {date.toLocaleDateString()} · {duration} min read
+      {new Date(date).toLocaleDateString()} · {duration} min read
     </div>
   </div>
 );
@@ -41,7 +26,7 @@ const ArticleItem = ({
   imageId,
 }) => (
   <div className={classNames("flex justify-between items-start", className)}>
-    <div class="flex-1">
+    <div className="flex-1">
       <Link to={`/article/${id}`} className="cursor-pointer">
         <div className="font-bold text-2xl">{title}</div>
         <div className="text-subheader text-sm mb-3">{summary}</div>
@@ -50,9 +35,7 @@ const ArticleItem = ({
         <AuthorAndDuration {...{ author, date, duration }} />
         <div>
           <Bookmark />
-          <i className="material-icons cursor-pointer ml-2 text-gray-500 hover:text-black">
-            more_horiz
-          </i>
+          <IconButton className="mr-2">more_horiz</IconButton>
         </div>
       </div>
     </div>
@@ -61,9 +44,9 @@ const ArticleItem = ({
 );
 
 export const Main = () => (
-  <div className="flex container m-auto">
-    <div className="w-2/3 pr-4">
-      {articles.map((article) => (
+  <div className="flex container-main m-auto">
+    <div className="w-2/3 pr-6">
+      {store.articles.map((article) => (
         <ArticleItem
           className="mb-16 last:mb-0"
           key={article.id}
@@ -71,10 +54,10 @@ export const Main = () => (
         />
       ))}
     </div>
-    <div className="w-1/3 pl-4">
+    <div className="w-1/3 pl-6">
       <div className="bg-gray-200">
         <ul className="p-6">
-          {articles
+          {store.articles
             .slice(0, 4)
             .map(({ id, title, authorImageId, author, date, duration }) => (
               <li key={id} className="mb-6 last:mb-0">

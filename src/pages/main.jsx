@@ -28,7 +28,9 @@ const ArticleItem = ({
   <div className={classNames("flex justify-between items-start", className)}>
     <div className="flex-1">
       <Link to={`/article/${id}`} className="cursor-pointer">
-        <div className="font-bold text-2xl">{title}</div>
+        <div className="font-bold text-2xl font-serif leading-tight mb-3">
+          {title}
+        </div>
         <div className="text-subheader text-sm mb-3">{summary}</div>
       </Link>
       <div className="flex justify-between items-center">

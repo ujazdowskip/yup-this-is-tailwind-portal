@@ -6,7 +6,7 @@ import { Bookmark } from "../components/bookmark.jsx";
 import { IconButton } from "../components/icon-button.jsx";
 import { Button } from "../components/button.jsx";
 
-export const Article = (props) => {
+export const Article = () => {
   const { articleId } = useParams();
   const {
     content,

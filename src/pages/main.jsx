@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 import articles from "../data/articles";
@@ -7,7 +8,9 @@ const Bookmark = () => {
   const [bookmarked, setBookmarked] = useState(false);
   return (
     <i
-      className="material-icons cursor-pointer"
+      className={classNames(
+        "material-icons cursor-pointer text-gray-500 hover:text-black"
+      )}
       onClick={() => setBookmarked(!bookmarked)}
     >
       {bookmarked ? "bookmark" : "bookmark_border"}
@@ -25,6 +28,7 @@ const AuthorAndDuration = ({ author, date, duration }) => (
 );
 
 const ArticleItem = ({
+  id,
   title,
   summary,
   author,
@@ -35,10 +39,10 @@ const ArticleItem = ({
 }) => (
   <div className={classNames("flex justify-between items-start", className)}>
     <div class="flex-1">
-      <a className="cursor-pointer">
+      <Link to={`/article/${id}`} className="cursor-pointer">
         <div className="font-bold text-2xl">{title}</div>
         <div className="text-subheader text-sm mb-3">{summary}</div>
-      </a>
+      </Link>
       <div className="flex justify-between items-center">
         <AuthorAndDuration {...{ author, date, duration }} />
         <div>
@@ -77,9 +81,12 @@ export const Main = () => (
                     src={`https://picsum.photos/id/${authorImageId}/40/40`}
                   />
                   <div className="flex flex-col min-w-0">
-                    <a className="font-bold truncate mb-1 cursor-pointer">
+                    <Link
+                      to={`/article/${id}`}
+                      className="font-bold truncate mb-1 cursor-pointer"
+                    >
                       {title}
-                    </a>
+                    </Link>
                     <AuthorAndDuration {...{ author, date, duration }} />
                   </div>
                 </div>

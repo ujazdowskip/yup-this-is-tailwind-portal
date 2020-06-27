@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import logo from "./images/logo.svg";
 
 import { Button, BUTTON_TYPES } from "./components/button.jsx";
 
-const NavLink = ({ children }) => (
-  <a className="cursor-pointer hover:text-green-500">{children}</a>
+const NavLink = ({ children, to }) => (
+  <Link className="cursor-pointer hover:text-green-500" to={to}>
+    {children}
+  </Link>
 );
 
 export const MainHeader = () => (
@@ -14,13 +18,7 @@ export const MainHeader = () => (
       <nav className="flex tracking-wide">
         <ul className="flex">
           <li className="mr-4 text-lg">
-            <NavLink>Home</NavLink>
-          </li>
-          <li className="mr-4 text-lg">
-            <NavLink>About</NavLink>
-          </li>
-          <li className="text-lg">
-            <NavLink>Contact</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
         </ul>
       </nav>

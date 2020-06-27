@@ -9,7 +9,10 @@ const Bookmark = () => {
   return (
     <i
       className={classNames(
-        "material-icons cursor-pointer text-gray-500 hover:text-black"
+        "material-icons cursor-pointer text-gray-500 hover:text-black",
+        {
+          "text-green-500 hover:text-green-300": bookmarked,
+        }
       )}
       onClick={() => setBookmarked(!bookmarked)}
     >

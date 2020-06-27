@@ -23,7 +23,6 @@ const App = () => (
             <Main />
           </Route>
         </Switch>
-        k
       </main>
     </Router>
   </div>

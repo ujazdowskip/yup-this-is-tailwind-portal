@@ -14,6 +14,13 @@ function* getParagraphs() {
   }
 }
 
+function* getTags() {
+  const count = 2 + faker.random.number(5);
+  for (let index = 0; index < count; index++) {
+    yield faker.lorem.word();
+  }
+}
+
 for (let index = 0; index < 20; index++) {
   articles[index] = {
     id: faker.random.uuid(),
@@ -25,17 +32,14 @@ for (let index = 0; index < 20; index++) {
     duration: faker.random.number(30),
     imageId: faker.random.number(300),
     authorImageId: faker.random.number(300),
+    tags: [...getTags()],
   };
 }
 
-fs.writeFile(
-  "./src/data/generated-articles.json",
-  JSON.stringify({ articles }),
-  (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("data generated");
-    }
+fs.writeFile("./src/store/index.js", JSON.stringify({ articles }), (err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("data generated");
   }
-);
+});

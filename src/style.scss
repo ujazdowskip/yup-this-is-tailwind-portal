@@ -11,13 +11,26 @@
 }
 
 .container-main {
-  max-width: 1032px;
+  @apply px-4;
+
+  @screen xl {
+    max-width: 1032px;
+  }
 }
 
 .container-article {
-  max-width: 680px;
+  @apply px-4;
+  max-width: unset;
+
+  @screen lg {
+    max-width: 680px;
+  }
 }
 
 .container-header {
-  max-width: 1192px;
+  @apply px-4;
+
+  @screen xl {
+    max-width: 1192px;
+  }
 }

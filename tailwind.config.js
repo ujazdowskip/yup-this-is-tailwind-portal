@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       boxShadow: {
         outline: "0 0 0 3px rgba(72, 187, 120, 0.5)",
+        "outline-secondary": `0 0 0 3px rgba(45, 55, 72, 0.5)`,
       },
       colors: {
         subheader: colors.gray["600"],

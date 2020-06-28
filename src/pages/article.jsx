@@ -4,7 +4,7 @@ import store from "../store";
 
 import { Bookmark } from "../components/bookmark.jsx";
 import { IconButton } from "../components/icon-button.jsx";
-import { Button } from "../components/button.jsx";
+import { Button, BUTTON_SIZES, BUTTON_TYPES } from "../components/button.jsx";
 
 export const Article = () => {
   const { articleId } = useParams();
@@ -30,9 +30,13 @@ export const Article = () => {
         <div className="text-sm flex-1">
           <div>
             <span>{author}</span>
-            <span className="ml-2 border border-gray-600 text-gray-600 rounded px-2 cursor-pointer hover:text-gray-800 hover:border-gray-800">
+            <Button
+              className="ml-2"
+              size={BUTTON_SIZES.XS}
+              type={BUTTON_TYPES.SECONDARY}
+            >
               Follow
-            </span>
+            </Button>
           </div>
           <div className="text-subheader">
             {new Date(date).toLocaleDateString()}
@@ -81,7 +85,7 @@ export const Article = () => {
             Fullstack Software Engineer
           </div>
         </div>
-        <Button>Follow</Button>
+        <Button size={BUTTON_SIZES.LG}>Follow</Button>
       </div>
     </article>
   );

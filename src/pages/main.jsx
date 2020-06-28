@@ -62,8 +62,8 @@ const NewFromNetwork = () => (
           <li key={id} className="mb-6 last:mb-0">
             <div className="flex align-top items-start">
               <img
-                className="rounded-full mr-4 w-10"
-                src={`https://picsum.photos/id/${authorImageId}/40/40`}
+                className="rounded-full mr-4 w-12"
+                src={`https://picsum.photos/id/${authorImageId}/50/50`}
               />
               <div className="flex flex-col min-w-0">
                 <Link

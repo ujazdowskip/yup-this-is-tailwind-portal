@@ -24,8 +24,8 @@ export const Article = () => {
       <div className="text-subheader text-lg mb-8">{summary}</div>
       <div className="flex mb-10 items-center">
         <img
-          src={`https://picsum.photos/id/123/40/40`}
-          className="rounded-full mr-4"
+          src={`https://picsum.photos/id/123/50/50`}
+          className="rounded-full mr-4 w-12"
         />
         <div className="text-sm flex-1">
           <div>

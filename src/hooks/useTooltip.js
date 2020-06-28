@@ -28,5 +28,5 @@ export const useTooltip = (content) => {
     </div>
   );
 
-  return [setReferenceElement, setIsVisible, tooltip];
+  return [setReferenceElement, setIsVisible, tooltip, referenceElement];
 };

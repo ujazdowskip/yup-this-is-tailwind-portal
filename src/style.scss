@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
+@import './style/components/tooltip.scss';
+
 @tailwind utilities;
+
 
 .link {
   @apply text-green-500 underline;

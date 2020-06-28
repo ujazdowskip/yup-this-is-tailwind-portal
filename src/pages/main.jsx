@@ -5,6 +5,8 @@ import classNames from "classnames";
 import store from "../store";
 import { Bookmark } from "../components/bookmark.jsx";
 import { IconButton } from "../components/icon-button.jsx";
+import { useTooltip } from "../hooks/useTooltip.js";
+import { Button } from "../components/button.jsx";
 
 const AuthorAndDuration = ({ author, date, duration }) => (
   <div className="text-xs">
@@ -47,6 +49,48 @@ const ArticleItem = ({
   </div>
 );
 
+const EditorAvatar = ({ name, authorImageId }) => {
+  const [setReferenceElement, setIsVisible, tooltip] = useTooltip(
+    <div className="p-3">
+      <div className="flex items-start">
+        <div>
+          <div className="text-ld font-bold">{name}</div>
+          <div className="text-sm text-green-500 mb-2">
+            Portal member since {new Date().toLocaleDateString()}
+          </div>
+          <div className="text-sm text-subheader mb-2">
+            Wow such a developer and writer
+          </div>
+        </div>
+        <img
+          className="rounded-full ml-4 w-16"
+          src={`https://picsum.photos/id/${authorImageId}/70/70`}
+        />
+      </div>
+      <hr />
+      <div className="pt-3 flex items-center justify-between">
+        <span>Followed by 100k people</span>
+        <Button>Follow</Button>
+      </div>
+    </div>
+  );
+
+  return (
+    <div
+      className="mr-4 w-12 flex-none cursor-pointer"
+      ref={setReferenceElement}
+      onMouseEnter={() => setIsVisible(true)}
+      onMouseLeave={() => setIsVisible(false)}
+    >
+      <img
+        className="rounded-full"
+        src={`https://picsum.photos/id/${authorImageId}/50/50`}
+      />
+      {tooltip}
+    </div>
+  );
+};
+
 const NewFromNetwork = () => (
   <div className="bg-gray-200">
     <div className="flex pl-10 pr-5 py-4 justify-between items-end bg-green-300">
@@ -61,10 +105,7 @@ const NewFromNetwork = () => (
         .map(({ id, title, authorImageId, author, date, duration }) => (
           <li key={id} className="mb-6 last:mb-0">
             <div className="flex align-top items-start">
-              <img
-                className="rounded-full mr-4 w-12"
-                src={`https://picsum.photos/id/${authorImageId}/50/50`}
-              />
+              <EditorAvatar name={author} authorImageId={authorImageId} />
               <div className="flex flex-col min-w-0">
                 <Link
                   to={`/article/${id}`}

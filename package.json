@@ -10,10 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.4.2",
     "classnames": "^2.2.6",
     "faker": "^4.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-popper": "^2.2.3",
     "react-router-dom": "^5.2.0",
     "tailwindcss": "^1.4.6",
     "webpack": "^4.43.0"

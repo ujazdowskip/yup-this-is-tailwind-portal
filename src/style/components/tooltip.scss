@@ -1,0 +1,49 @@
+.tooltip[data-popper-placement^='top']>.arrow {
+  bottom: -5px;
+
+  &::after {
+    @apply border-b border-r;
+  }
+}
+
+.tooltip[data-popper-placement^='bottom']>.arrow {
+  top: -5px;
+
+  &::after {
+    @apply border-t border-l;
+  }
+}
+
+.tooltip[data-popper-placement^='left']>.arrow {
+  right: -5px;
+
+  &::after {
+    @apply border-t border-r;
+  }
+}
+
+.tooltip[data-popper-placement^='right']>.arrow {
+  left: -5px;
+
+  &::after {
+    @apply border-b border-l;
+  }
+}
+
+.arrow {
+  z-index: 1;
+}
+
+.arrow,
+.arrow::after {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+}
+
+.arrow::after {
+  content: '';
+  transform: rotate(45deg);
+  z-index: -1;
+  @apply bg-white;
+}

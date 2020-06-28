@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { Button, BUTTON_TYPES } from "./components/button.jsx";
+import { Button, BUTTON_TYPES } from "./button.jsx";
 
 export const MainHeader = () => (
   <header className="shadow-xl">
@@ -11,7 +11,7 @@ export const MainHeader = () => (
           <ul className="flex">
             <li className="mr-4 text-2xl font-bold font-serif">
               <Link className="cursor-pointer" to="/">
-                Cosmos
+                Portal
               </Link>
             </li>
           </ul>

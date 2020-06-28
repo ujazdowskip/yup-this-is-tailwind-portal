@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./style.scss";
-import { MainHeader } from "./main-header.jsx";
+import { MainHeader } from "./components/main-header.jsx";
 
 import { Main } from "./pages/main.jsx";
 import { Article } from "./pages/article.jsx";

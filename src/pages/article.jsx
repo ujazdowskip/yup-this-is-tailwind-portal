@@ -19,8 +19,8 @@ export const Article = () => {
   } = store.articles.find(({ id }) => id === articleId);
 
   return (
-    <article className="container-article m-auto text-xl">
-      <h2 className="text-4xl mb-2 font-serif">{title}</h2>
+    <article className="container-article m-auto text-lg mt-16">
+      <h2 className="text-4xl mb-2 font-serif leading-tight">{title}</h2>
       <div className="text-subheader text-lg mb-8">{summary}</div>
       <div className="flex mb-10">
         <img

@@ -22,7 +22,7 @@ export const Article = () => {
     <article className="container-article m-auto text-lg mt-16">
       <h2 className="text-4xl mb-2 font-serif leading-tight">{title}</h2>
       <div className="text-subheader text-lg mb-8">{summary}</div>
-      <div className="flex mb-10">
+      <div className="flex mb-10 items-center">
         <img
           src={`https://picsum.photos/id/123/40/40`}
           className="rounded-full mr-4"

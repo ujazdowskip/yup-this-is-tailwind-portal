@@ -18,7 +18,6 @@ const AuthorAndDuration = ({ author, date, duration }) => (
 const ArticleItem = ({
   id,
   title,
-  summary,
   author,
   date,
   duration,
@@ -69,7 +68,7 @@ const NewFromNetwork = () => (
               <div className="flex flex-col min-w-0">
                 <Link
                   to={`/article/${id}`}
-                  className="font-bold truncate mb-1 cursor-pointer"
+                  className="font-bold truncate mb-1 cursor-pointer font-serif"
                 >
                   {title}
                 </Link>

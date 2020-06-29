@@ -5,7 +5,15 @@ import { Button, BUTTON_TYPES } from "./button.jsx";
 import { useTooltip } from "../hooks/useTooltip.js";
 import { useOutsideClick } from "../hooks/useOutsideClick.js";
 
-const SettingItem = ({ label }) => <li className="px-4 py-1">{label}</li>;
+const SettingItem = ({ label }) => (
+  <li className="px-4 py-1 hover:text-gray-500">{label}</li>
+);
+
+const sections = [
+  ["New story", "Stories", "Series", "Stats"],
+  ["Portal partnel program"],
+  ["Reading list", "Publications"],
+];
 
 const Settings = () => (
   <ul>
@@ -21,22 +29,18 @@ const Settings = () => (
         </div>
       </div>
     </li>
-    <li className="border-b text-subheader py-2">
-      <ul>
-        {["New story", "Stories", "Series"].map((label) => (
-          <SettingItem label={label} />
-        ))}
-      </ul>
-    </li>
-    <li className="border-b text-subheader py-2">
-      <ul>
+    {sections.map((section, i) => (
+      <li
+        key={`section-${i}`}
+        className="border-b last:border-0 text-subheader py-2"
+      >
         <ul>
-          {["New story", "Stories", "Series"].map((label) => (
-            <SettingItem label={label} />
+          {section.map((label, j) => (
+            <SettingItem key={`item-${j}`} label={label} />
           ))}
         </ul>
-      </ul>
-    </li>
+      </li>
+    ))}
   </ul>
 );
 

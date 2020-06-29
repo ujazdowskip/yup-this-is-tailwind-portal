@@ -1,39 +1,7 @@
 @tailwind base;
+
 @tailwind components;
 @import './style/components/tooltip.scss';
+@import './style/components/container.scss';
 
 @tailwind utilities;
-
-
-.link {
-  @apply text-green-500 underline;
-
-  &:hover {
-    @apply text-green-500 underline;
-  }
-}
-
-.container-main {
-  @apply px-4;
-
-  @screen xl {
-    max-width: 1032px;
-  }
-}
-
-.container-article {
-  @apply px-4;
-  max-width: unset;
-
-  @screen lg {
-    max-width: 680px;
-  }
-}
-
-.container-header {
-  @apply px-4;
-
-  @screen xl {
-    max-width: 1192px;
-  }
-}
